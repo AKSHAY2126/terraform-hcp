@@ -6,3 +6,5 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
+#This is check
