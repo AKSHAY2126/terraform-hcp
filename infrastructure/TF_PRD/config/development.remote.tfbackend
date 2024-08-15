@@ -1,5 +1,0 @@
-hostname     = "app.terraform.io"
-organization = "firstorg21"
-workspaces {
-      name = "terraform"
-    }
