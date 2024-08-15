@@ -3,6 +3,19 @@ terraform {
   }
 }
 
+# terraform {
+#   backend "remote" {
+#     hostname     = "app.terraform.io"
+#     organization = "firstorg21"
+
+#     workspaces {
+#       name = "terraform"
+#     }
+#   }
+# }
+
+
+
 provider "azurerm" {
   features {}
 }
