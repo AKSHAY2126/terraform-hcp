@@ -13,7 +13,7 @@ on:
 env:
   CLIENT_ID: '38986028-f150-4e5a-935b-45e419e5b70d'
   TF_CLOUD_HOSTNAME: 'app.terraform.io'
-  TERRAFORM_PATH: "./infrastructure/TF_PRD"
+  TERRAFORM_PATH: "./infrastructure/TF_PRD/"
 
 permissions:
   pull-requests: write
@@ -35,7 +35,7 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: 'Terraform Init'
-        run: terraform init -upgrade -backend-config=./config/development.remote.tfbackend
+        run: terraform init -upgrade -backend-config=./config/prd.remote.tfbackend
         working-directory: ${{ env.TERRAFORM_PATH }}
 
       - name: 'Terraform Plan'
