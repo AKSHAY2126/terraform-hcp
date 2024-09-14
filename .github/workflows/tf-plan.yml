@@ -1,44 +1,44 @@
-# name: Terraform Plan
+name: Terraform Plan
 
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - main
 
-#   workflow_dispatch:
+  workflow_dispatch:
 
-# env:
-#   CLIENT_ID: '38986028-f150-4e5a-935b-45e419e5b70d'
-#   TF_CLOUD_HOSTNAME: 'app.terraform.io'
-#   TERRAFORM_PATH: "./infrastructure/TF_PRD/"
+env:
+  CLIENT_ID: '2338ff75-3233-492c-9209-279b1beae89e'
+  TF_CLOUD_HOSTNAME: 'app.terraform.io'
+  TERRAFORM_PATH: "./infrastructure/TF_PRD/"
 
-# permissions:
-#   pull-requests: write
-#   contents: read
+permissions:
+  pull-requests: write
+  contents: read
 
-# jobs:
-#   terraform:
-#     name: Terraform Plan
-#     runs-on: ubuntu-latest
+jobs:
+  terraform:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: 'Checkout repository code'
-#         uses: actions/checkout@v4
+    steps:
+      - name: 'Checkout repository code'
+        uses: actions/checkout@v4
 
-#       - name: 'Setup Terraform'
-#         uses: hashicorp/setup-terraform@v3
-#         with:
-#           cli_config_credentials_hostname: ${{ env.TF_CLOUD_HOSTNAME }}
-#           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: 'Setup Terraform'
+        uses: hashicorp/setup-terraform@v3
+        with:
+          cli_config_credentials_hostname: ${{ env.TF_CLOUD_HOSTNAME }}
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-#       - name: 'Terraform Init'
-#         run: terraform init -upgrade -backend-config=./config/development.remote.tfbackend
-#         working-directory: ${{ env.TERRAFORM_PATH }}
+      - name: 'Terraform Init'
+        run: terraform init -upgrade -backend-config=./config/development.remote.tfbackend
+        working-directory: ${{ env.TERRAFORM_PATH }}
 
-#       - name: 'Terraform Plan'
-#         id: terraform-plan
-#         run: terraform plan
-#         working-directory: ${{ env.TERRAFORM_PATH }}
+      - name: 'Terraform Plan'
+        id: terraform-plan
+        run: terraform plan
+        working-directory: ${{ env.TERRAFORM_PATH }}
