@@ -67,6 +67,5 @@ resource "azurerm_linux_web_app" "example" {
   }
 
   site_config {
-    linux_fx_version = "PYTHON|3.8"  # Example runtime stack
   }
 }
