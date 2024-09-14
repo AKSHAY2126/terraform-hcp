@@ -18,9 +18,6 @@ provider "azurerm" {
 #   location = "West Europe"
 # }
 
-provider "azurerm" {
-  features {}
-}
 
 # Create Resource Group
 resource "azurerm_resource_group" "example" {
